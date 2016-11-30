@@ -61,6 +61,7 @@ function modalSelect($ionicModal, $timeout, $filter, $parse, $templateCache ) {
 				onSearch: "&",
 				onReset: "&",
 				onClose: "&",
+				onAdd: '&'
 			},
 			link: function (scope, iElement, iAttrs, ngModelController, transclude) {
 
@@ -80,6 +81,9 @@ function modalSelect($ionicModal, $timeout, $filter, $parse, $templateCache ) {
 
 				scope.ui = {
 					modalTitle : iAttrs.modalTitle || 'Select an option',
+					hasAddAbility : (iAttrs.onAdd !== undefined),
+					addButtonClass : iAttrs.addButtonClass || ['button', 'button-clear', 'icon', 'ion-ios-plus-empty'],
+					onAddClick : scope.onAdd,
 					okButton : iAttrs.okButton || 'OK',
 					hideReset : iAttrs.hideReset  !== "true" ? false : true,
 					resetButton : iAttrs.resetButton || 'Reset',

@@ -2,6 +2,8 @@
 
     <ion-header-bar ng-class="::ui.headerFooterClass">
       <h1 class="title">{{::ui.modalTitle}}</h1>
+      <button ng-if="::ui.hasAddAbility" ng-click="::ui.onAddClick()" class="button" ng-class="::ui.addButtonClass">
+      </button>
     </ion-header-bar>
 
     <div class="bar bar-subheader item-input-inset" ng-class="::ui.subHeaderClass" ng-if="ui.hasSearch">
