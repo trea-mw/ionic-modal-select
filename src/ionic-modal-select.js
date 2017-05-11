@@ -59,9 +59,11 @@ function modalSelect($ionicModal, $timeout, $filter, $parse, $templateCache ) {
 				searchProperties:'=',
 				onSelect: "&",
 				onSearch: "&",
+				onSearchClear: "&",
 				onReset: "&",
 				onClose: "&",
-				onAdd: '&'
+				onAdd: '&',
+				optionsFooter: '=',
 			},
 			link: function (scope, iElement, iAttrs, ngModelController, transclude) {
 
@@ -101,8 +103,7 @@ function modalSelect($ionicModal, $timeout, $filter, $parse, $templateCache ) {
 					searchValue : '',
 					searchPlaceholder : iAttrs.searchPlaceholder || 'Search',
 					subHeaderClass : iAttrs.subHeaderClass || 'bar-stable',
-					cancelSearchButton : iAttrs.cancelSearchButton || 'Clear'
-
+					cancelSearchButton : iAttrs.cancelSearchButton || 'Clear',
 				};
 
 				var allOptions = [];
@@ -424,6 +425,11 @@ function modalSelect($ionicModal, $timeout, $filter, $parse, $templateCache ) {
 				}
 
 				scope.copyOpt = option => {
+					if (iAttrs.onSearchClear)
+					{
+						iAttrs.onSearchClear();
+					}
+
 					return angular.copy(option);
 				}
 

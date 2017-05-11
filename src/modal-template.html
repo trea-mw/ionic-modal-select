@@ -33,6 +33,9 @@
                       ng-class="{'{{::ui.selectedClass}}': compareValues(getSelectedValue(option), ui.value) }">
                         <div compile="inner" compile-once="true"></div>
                     </div>
+                    <div class="list-footer" ng-if="optionsFooter">
+                        {{ optionsFooter }}
+                    </div>
                 </div>
             </div>
             <div ng-if="ui.shortList">
@@ -42,6 +45,9 @@
                       ng-click="setOption(option)"
                       ng-class="{ '{{::ui.itemClass}}' : true, '{{::ui.selectedClass}}': compareValues(getSelectedValue(option), ui.value) }">
                         <div compile="inner" compile-once="true"></div>
+                    </div>
+                    <div class="list-footer" ng-if="optionsFooter">
+                        {{ optionsFooter }}
                     </div>
                 </div>
             </div>
